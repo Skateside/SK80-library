@@ -1,3 +1,1 @@
-The SK80 Library desperately needs a better name, but it's designed to add the ES5 methods to all browsers. It's also written to be easy to modify.
-
-Currently it only supports Arrays, but it works in Firefox, Opera, Safari, Chrome and IE as far back as 6.
+SK80 is a wrapper that will act to enable all ES5 methods and prototypes on native JavaScript objects without modifying the objects themselves.
