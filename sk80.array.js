@@ -293,8 +293,8 @@
     
     // Test to see what Array.unshift does. It's not supported in some versions
     // of IE; it exists, it just doesn't do anything.
-    if (!usTest.unshift || usTest.unshift(3) !== 3 || usTest.join('') !== '312') {
-        SK80Array.prototype.unshift = function () {
+    sk80.expand(SK80Array.prototype, {
+        unshift: function () {
             var that = this,
                 len = arguments.length,
                 i = 0,
@@ -307,8 +307,8 @@
             }
             that.length += len;
             return that.length;
-        };
-    }
+        }
+    }, !usTest.unshift || usTest.unshift(3) !== 3 || usTest.join('') !== '312');
 
     
     // Add the new methods to our prototype.
