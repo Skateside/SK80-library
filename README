@@ -1,1 +1,4 @@
+README
+------
+
 SK80 is a wrapper that will act to enable all ES5 methods and prototypes on native JavaScript objects without modifying the objects themselves.

@@ -1,8 +1,5 @@
-// http://www.ecma-international.org/publications/files/ECMA-ST/Ecma-262.pdf
-// A few things to note from the String specs (pg 141)
-// String.prototype.localeCompare(that), String.prototype.toLocaleLowerCase(that) (and -Upper)
-// MDC: https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String/localeCompare
 (function (sk80, undef) {
+
     "use strict";
 
         // The version of this treatment.
