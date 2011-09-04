@@ -1,12 +1,17 @@
 SK80 is a wrapper that will act to enable all ES5 methods and prototypes on native JavaScript objects without modifying the objects themselves. It's designed to double-up as a safe area to add methods without affecting the in-built JavaScript features. It is also modular so it's possible to only include the parts you needs. When the project is finished, I'll put together a combined library of all the objects.
 
 # Current status: #
+
 SK80 core, SK80.string and SK80.array are working fine.
+
 SK80.function is written, but not yet tested.
+
 SK80.object is still being written.
+
 SK80.date is probably worth writing, SK80.number, SK80.boolean, SK80.regexp probably aren't, but who knows.
 
 # How to use: #
+
 Simply wrap to variable in the SK80 wrapper to enable the ES5 methods. It always defaults to the in-built methods unless those methods are buggy.
 Imagine the following piece of code in IE7:
 
@@ -27,6 +32,7 @@ Sadly, this is not always possible (especially for things like Strings). On thes
     SK80([1, 2, 3]).getNative(); // [1, 2, 3]
 
 # Expanding SK80: #
+
 SK80 is designed to be expandable. To allow methods to be added, each SK80 object (or "treatment") has an exposed prototype. The current ones are:
 SK80.arrayProto, SK80.stringProto, SK80.functionProto, SK80.objectProto (work in progress)
 SK80 has a few utilities to aid expanding these. Most useful is the expand property, which takes 2 or 3 arguments: the source object to be expanded, an object containing methods to add to the source and an optional third argument that will only be needed when the source and the expansion contain properties with the same name. More on that a little later.
