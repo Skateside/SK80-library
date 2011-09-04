@@ -57,22 +57,20 @@
         }
     }());    
     
-    // Converts a string to a positive number, optionally with a maximum. More
-    // reliable than bit-shifting.
-    function toPositiveNumber(str, max) {
-        var number = Number(str);
+    // toInteger converts a string to a number. It more closely follows the
+    // ToInteger described in the specs and can return negative numbers.
+    // http://es5.github.com/#x9.4
+    function toInteger(str) {
+        var number = Number(str),
+            returnValue = number;
+        
         if (isNaN(number)) {
-            number = 0;
-        } else {
-            number = Math.abs(number);
+            returnValue = 0;
+        } else if (number !== 0 && isFinite(number)) {
+            returnValue = (number < 0 ? -1 : 1) * Math.floor(Math.abs(number));
         }
-        if (max !== undef) {
-            max = toPositiveNumber(max);
-            if (number > max) {
-                number = max;
-            }
-        }
-        return number;
+        
+        return returnValue;
     }
     
     // Since Array.indexOf and Array.lastIndexOf work in basically the same
@@ -81,7 +79,7 @@
 
         var returnValue = -1,
             oThis = last ? this.reverse() : this,
-            il = toPositiveNumber(oThis.length);
+            il = toInteger(oThis.length);
         
         // Check the object.
         if (oThis === undef || oThis === null) {
@@ -90,7 +88,14 @@
         }
         
         // Force offset into a number.
-        offset = toPositiveNumber(offset);
+        offset = toInteger(offset);
+        // Check to ensure it's in range.
+        // https://gist.github.com/1120592
+        if (last) {
+            offset = Math.min(offset, il - 1);
+        } else if (offset < 0) {
+            offset = Math.max(0, il + offset);
+        }
         
         // If this is lastIndexOf then the array is reversed and we need to
         // re-calculate the offset based on a backwards array.
@@ -126,7 +131,7 @@
     
         var i,
             oThis = this,
-            il = toPositiveNumber(oThis.length),
+            il = toInteger(oThis.length),
             value,
             returnValue,
             funcCall,
@@ -220,7 +225,7 @@
         
         var i = 1,
             oThis = this,
-            il = toPositiveNumber(oThis.length),
+            il = toInteger(oThis.length),
             currentValue,
             value,
             j;
