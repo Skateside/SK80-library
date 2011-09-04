@@ -82,6 +82,6 @@
     });
     
     // Expose the SK80Function prototype.
-    sk80.funcProto = SK80Function.prototype;
+    sk80.functionProto = SK80Function.prototype;
 
 }(SK80));
