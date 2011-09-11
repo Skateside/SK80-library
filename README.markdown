@@ -10,6 +10,15 @@ SK80.object is still being written.
 
 SK80.date is probably worth writing, SK80.number, SK80.boolean, SK80.regexp probably aren't, but who knows.
 
+# Testing #
+
+I have a few browsers on my PC at home plus a login for [Spoon.net](http://spoon.net/Browsers/). I will get SK80 working consistently across all of those browsers. Therefore, SK80 works on:
+* Chrome 13, 8, 6 (7, 5 and 4 wouldn't open)
+* Firefox 6, 5, 4, 3.6, 3.5, 2
+* Internet Explorer 8, 7, 6 (IE8 can display a page to IE7 standards)
+* Opera 11, 10, 9
+* Safari 5, 4, 3
+
 # How to use: #
 
 Simply wrap to variable in the SK80 wrapper to enable the ES5 methods. It always defaults to the in-built methods unless those methods are buggy.
